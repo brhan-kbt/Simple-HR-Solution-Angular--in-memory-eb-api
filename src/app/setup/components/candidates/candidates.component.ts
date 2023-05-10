@@ -6,13 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CandidateFormComponent } from '../../forms/candidate-form/candidate-form.component';
 import { CandidateService } from '../../services/candidate/candidate.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Candidate } from '../../models/candidate.models';
 
-export interface Candidate {
-  id:number;
-  name: string;
-  email: string;
-  phone:string;
-}
+
 
 @Component({
   selector: 'app-candidates',
@@ -92,10 +88,6 @@ export class CandidatesComponent implements OnInit {
    dialogRef.componentInstance.save.subscribe(updatedCandidate => {
     this.candidateService.updateCandidate(updatedCandidate).subscribe(res => {
       console.log('Updated');
-      // Update the candidate in the dataSource
-      // const index = this.dataSource.data.findIndex(c => c.id === updatedCandidate.id);
-      // this.dataSource.data[index] = updatedCandidate;
-      // // Refresh the dataSource
        this.dataSource = new MatTableDataSource(this.dataSource.data);
         this.dataSource.paginator = this.paginator;
   }, err => {

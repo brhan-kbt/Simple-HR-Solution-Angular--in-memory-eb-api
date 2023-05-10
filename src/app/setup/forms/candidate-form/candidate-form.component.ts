@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -15,19 +16,32 @@ export class CandidateFormComponent {
   };
   
   @Output() save = new EventEmitter<any>();
+  form: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<CandidateFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: FormBuilder
 
     ) { 
-    this.candidate = data.candidate;
-    this.isEdit=data.isEdit;
+          this.candidate = data.candidate 
+          this.isEdit=data.isEdit;
 
+          this.form = this.formBuilder.group({
+            name: [data.candidate.name, Validators.required],
+            email: [data.candidate.email, [Validators.required, Validators.email]],
+            phone: [data.candidate.phone, [Validators.required]]
+          });
   }
 
   onSave(): void {
-    this.save.emit(this.candidate);
-    console.log(this.candidate);
-    this.dialogRef.close();
+    if (this.form.valid) {
+      this.save.emit(this.candidate);
+      console.log(this.candidate);
+      this.dialogRef.close();
+    } else {
+      // handle invalid form
+      console.log('Form is invalid');
+    }
   }
+
 }

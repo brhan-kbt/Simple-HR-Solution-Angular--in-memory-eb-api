@@ -6,12 +6,9 @@ import { SalaryService } from '../../services/salary/salary.service';
 import { forkJoin } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { SalaryFormComponent } from '../../forms/salary-form/salary-form.component';
+import { Salary } from '../../models/salary.model';
 
 
-export interface Salary {
-  amount:number;
-
-}
 
 @Component({
   selector: 'app-salary',

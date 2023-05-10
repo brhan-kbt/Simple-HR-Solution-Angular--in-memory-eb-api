@@ -5,18 +5,26 @@
     <mat-label>Candidate ID</mat-label>
     <input matInput placeholder="1" name="id" [(ngModel)]="candidate.id">
   </mat-form-field> -->
-  <mat-form-field appearance="outline">
-    <mat-label>Candidate Name</mat-label>
-    <input matInput placeholder="John Doe" name="name" [(ngModel)]="candidate.name">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Candidate Email</mat-label>
-    <input matInput placeholder="email@example.com" name="email" [(ngModel)]="candidate.email">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Candidate Phone Number</mat-label>
-    <input matInput placeholder="+251905280274" name="phone" [(ngModel)]="candidate.phone">
-  </mat-form-field>
- 
-  <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Candidate Name</mat-label>
+      <input matInput placeholder="John Doe" formControlName="name" [(ngModel)]="candidate.name" required>
+      <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Name is required</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Candidate Email</mat-label>
+      <input matInput placeholder="email@example.com" formControlName="email" [(ngModel)]="candidate.email" required>
+      <mat-error *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Email is required</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Candidate Phone Number</mat-label>
+      <input matInput placeholder="+251905280274" formControlName="phone" [(ngModel)]="candidate.phone" required>
+      <mat-error *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid">Phone Number is required</mat-error>
+
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+    </form>
 </div>

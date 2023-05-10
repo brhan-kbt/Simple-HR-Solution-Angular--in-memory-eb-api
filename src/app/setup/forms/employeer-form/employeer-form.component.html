@@ -1,12 +1,18 @@
 <div class="container">
     <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Employeer</h2>
+
+    <form [formGroup]="form">
        <mat-form-field appearance="outline">
       <mat-label>Employeer Name</mat-label>
-      <input matInput placeholder="John Doe" name="name" [(ngModel)]="employeer.name">
+      <input matInput placeholder="John Doe" formControlName="name" [(ngModel)]="employeer.name">
+      <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Name is required</mat-error>
+
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Employeer Designation</mat-label>
-      <input matInput placeholder="email@example.com" name="designation" [(ngModel)]="employeer.designation">
+      <input matInput placeholder="email@example.com" formControlName="designation" [(ngModel)]="employeer.designation">
+      <mat-error *ngIf="form.get('designation')?.touched && form.get('designation')?.invalid">Designation is required</mat-error>
+
     </mat-form-field>
     <!-- <mat-form-field>
         <mat-label>Select Company</mat-label>
@@ -18,20 +24,25 @@
      <div style="display: flex; gap: 14px;">
         <mat-form-field>
             <mat-label>Select Department</mat-label>
-            <mat-select [(ngModel)]="employeer.deptId" name="company">
+            <mat-select [(ngModel)]="employeer.deptId" formControlName="deptId">
               <mat-option *ngFor="let dept of department" [value]="dept.id">{{dept.name}}</mat-option>
+            <mat-error *ngIf="form.get('deptId')?.touched && form.get('deptId')?.invalid">Select Dept</mat-error>
+
             </mat-select>
           </mat-form-field>
     
           <mat-form-field>
             <mat-label>Select Salary</mat-label>
-            <mat-select [(ngModel)]="employeer.salaryId" name="company">
+            <mat-select [(ngModel)]="employeer.salaryId" formControlName="salaryId">
               <mat-option *ngFor="let salary of salaries" [value]="salary.id">{{salary.amount}}</mat-option>
+            <mat-error *ngIf="form.get('salaryId')?.touched && form.get('salaryId')?.invalid">Select Salary</mat-error>
+
             </mat-select>
           </mat-form-field>
      </div>
       
    
     <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+    </form>
   </div>
   

@@ -7,19 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CompanyService } from '../../services/company/company.service';
 import { forkJoin } from 'rxjs';
 import { DepartmentFormComponent } from '../../forms/department-form/department-form.component';
+import { Department } from '../../models/department.model';
 
-export interface Department {
-  name: string;
-  companyId:string;
-  company?:Company;
-
-}
-
-export interface Company {
-  id: number;
-  name: string;
-  address: string;
-}
 
 @Component({
   selector: 'app-department',

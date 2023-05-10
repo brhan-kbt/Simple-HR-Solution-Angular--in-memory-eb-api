@@ -9,31 +9,9 @@ import { EmployeerFormComponent } from '../../forms/employeer-form/employeer-for
 import { DepartmentService } from '../../services/department/department.service';
 import { SalaryService } from '../../services/salary/salary.service';
 import { forkJoin } from 'rxjs';
+import { Employeer } from '../../models/employeer.model';
 
-export interface Employeer {
-  id: string;
-  name: string;
-  designation: string;
-  deptId: number; 
-  salaryId:number;
-  department?: Department;
-}
 
-export interface Department {
-  id: number;
-  name: string;
-  companyId: string;
-  company?:Company;
-}
-export interface Salary {
-  id: number;
-  amount: number;
-}
-export interface Company {
-  id: number;
-  name: string;
-  address: string;
-}
 @Component({
   selector: 'app-employeers',
   templateUrl: './employeers.component.html',

@@ -1,16 +1,22 @@
 <div class="container">
     <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Company</h2>
    
+    <form [formGroup]="form">
     <mat-form-field appearance="outline">
       <mat-label>Company Name </mat-label>
-      <input matInput placeholder="John Doe" name="name" [(ngModel)]="company.name">
+      <input matInput placeholder="John Doe" formControlName="name" [(ngModel)]="company.name" required>
+      <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Company Name is required</mat-error>
+      
     </mat-form-field>
     
     
     <mat-form-field appearance="outline">
         <mat-label>Company Location </mat-label>
-        <input matInput placeholder="Addis Ababa" name="location" [(ngModel)]="company.location">
+        <input matInput placeholder="Addis Ababa" formControlName="location" [(ngModel)]="company.location" required>
+      <mat-error *ngIf="form.get('location')?.touched && form.get('location')?.invalid">Company location is required</mat-error>
+
       </mat-form-field>
     <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+  </form>
   </div>
   
