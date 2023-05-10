@@ -1,0 +1,38 @@
+.user-photo {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+    padding: 10px 0px;
+  }
+  .tool{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(41, 156, 35);
+  }
+  
+  .user-name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .user-email {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .mat-icon {
+    font-size: 18px;
+  }
+  mat-icon {
+    vertical-align: middle;
+  }
+  

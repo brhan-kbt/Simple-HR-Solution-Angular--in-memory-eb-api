@@ -1,0 +1,11 @@
+<div class="container">
+    <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Salary</h2>
+   
+    <mat-form-field appearance="outline">
+      <mat-label>Amount </mat-label>
+      <input matInput placeholder="John Doe" name="amount" [(ngModel)]="salary.amount">
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+  </div>
+  

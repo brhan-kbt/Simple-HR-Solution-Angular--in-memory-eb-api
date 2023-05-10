@@ -1,0 +1,17 @@
+<div class="container">
+    <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Department</h2>
+   
+    <mat-form-field appearance="outline">
+      <mat-label>Department Name</mat-label>
+      <input matInput placeholder="John Doe" name="name" [(ngModel)]="department.name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Select Company</mat-label>
+        <mat-select [(ngModel)]="department.companyId" name="company">
+          <mat-option *ngFor="let company of companies" [value]="company.id">{{company.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+   
+    <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+  </div>
+  

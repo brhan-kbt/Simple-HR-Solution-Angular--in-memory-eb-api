@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Company</h2>
+   
+    <mat-form-field appearance="outline">
+      <mat-label>Company Name </mat-label>
+      <input matInput placeholder="John Doe" name="name" [(ngModel)]="company.name">
+    </mat-form-field>
+    
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Company Location </mat-label>
+        <input matInput placeholder="Addis Ababa" name="location" [(ngModel)]="company.location">
+      </mat-form-field>
+    <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+  </div>
+  

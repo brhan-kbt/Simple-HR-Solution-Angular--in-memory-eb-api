@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Employeer</h2>
+       <mat-form-field appearance="outline">
+      <mat-label>Employeer Name</mat-label>
+      <input matInput placeholder="John Doe" name="name" [(ngModel)]="employeer.name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Employeer Designation</mat-label>
+      <input matInput placeholder="email@example.com" name="designation" [(ngModel)]="employeer.designation">
+    </mat-form-field>
+    <!-- <mat-form-field>
+        <mat-label>Select Company</mat-label>
+        <mat-select [(ngModel)]="employeer.companyId" name="company">
+          <mat-option *ngFor="let company of companies" [value]="company.id">{{company.name}}</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+     <div style="display: flex; gap: 14px;">
+        <mat-form-field>
+            <mat-label>Select Department</mat-label>
+            <mat-select [(ngModel)]="employeer.deptId" name="company">
+              <mat-option *ngFor="let dept of department" [value]="dept.id">{{dept.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    
+          <mat-form-field>
+            <mat-label>Select Salary</mat-label>
+            <mat-select [(ngModel)]="employeer.salaryId" name="company">
+              <mat-option *ngFor="let salary of salaries" [value]="salary.id">{{salary.amount}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+     </div>
+      
+   
+    <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+  </div>
+  

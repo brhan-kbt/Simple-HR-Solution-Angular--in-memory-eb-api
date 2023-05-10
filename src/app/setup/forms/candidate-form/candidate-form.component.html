@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 style="color: white;">{{isEdit ? 'Edit' : 'Add'}} Candidate</h2>
+ 
+  <!-- <mat-form-field appearance="outline">
+    <mat-label>Candidate ID</mat-label>
+    <input matInput placeholder="1" name="id" [(ngModel)]="candidate.id">
+  </mat-form-field> -->
+  <mat-form-field appearance="outline">
+    <mat-label>Candidate Name</mat-label>
+    <input matInput placeholder="John Doe" name="name" [(ngModel)]="candidate.name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Candidate Email</mat-label>
+    <input matInput placeholder="email@example.com" name="email" [(ngModel)]="candidate.email">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Candidate Phone Number</mat-label>
+    <input matInput placeholder="+251905280274" name="phone" [(ngModel)]="candidate.phone">
+  </mat-form-field>
+ 
+  <button mat-raised-button color="primary"  (click)="onSave()">Save</button>
+</div>
